@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 import Validation from './SignupValidation';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Registro() {
@@ -19,7 +20,7 @@ function Registro() {
     telefono: '',
     curso: ''
   })
-  
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({})
   const handleInput = (event) => {
     setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
@@ -29,8 +30,9 @@ function Registro() {
     setErrors(Validation(values));
     if(errors.nombre === "" && errors.email === "" && errors.password === "" && errors.telefono === ""){
       axios.post('http://localhost:8081/usuarios', values)
-      .then(res=>console.log(res))
-    .catch(err=>console.log(err));
+      .then (res => {
+        navigate('/login');
+      })
     }
   }
   return (
@@ -72,6 +74,7 @@ function Registro() {
         <Form.Group as={Col} controlId="formGridState">
           <Form.Label>Curso</Form.Label>
           <Form.Select defaultValue="Choose..." name='curso' onChange={handleInput}>
+            <option>Seleecione un curso</option>
             <option>Sexto</option>
             <option>Septimo</option>
             <option>Octavo</option>
@@ -84,6 +87,7 @@ function Registro() {
         <Form.Group as={Col} controlId="formGridState2">
           <Form.Label>Tipo de Usuario</Form.Label>
           <Form.Select defaultValue="Choose..." name='usuario' onChange={handleInput}>
+            <option>Seleccione el tipo de usuario</option>
             <option>Padre de Familia</option>
             <option>Estudiante</option>
             <option>Operador</option>

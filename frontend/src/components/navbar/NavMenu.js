@@ -21,7 +21,7 @@ export default class NavMenu extends Component {
           <Nav className="me-auto">
             <Nav.Link href="/">Inicio</Nav.Link>
             <Nav.Link href="/about">Sobre Nosotros</Nav.Link>
-            <Nav.Link href="/signup">Iniciar Sesión</Nav.Link>
+            <Nav.Link href="/login">Iniciar Sesión</Nav.Link>
             <Nav.Link href="/registro">Registrar</Nav.Link>
           </Nav>
         </Container>

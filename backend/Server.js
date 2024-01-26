@@ -13,11 +13,21 @@ const db = mysql.createConnection({
     database: 'db_cafeteria'
 })
 
-app.get ('/', (re, res) =>{
+app.get ('/', (req, res) =>{
     return res.json("Conexion BackEnd - MariaDb");
 })
 
-app.get ('/usuarios', (req, res)=>{
+//URL USUARIOS YA REGISTRADOS
+//app.get ('/usuarios', (req, res)=>{
+ //   const sql = "SELECT * FROM  usuarios";
+   // db.query(sql, (err, data)=>{
+     //   if(err) return res.json(err);
+       // return res.json(data);
+//})
+//})
+
+//URL USUARIOS PARA EL LOGIN
+app.get ('/login', (req, res)=>{
     const sql = "SELECT * FROM  usuarios";
     db.query(sql, (err, data)=>{
         if(err) return res.json(err);
@@ -44,18 +54,25 @@ app.post ('/usuarios', (req, res)=>{
     })
 })
 
-//app.post ('/usuarios', (req, res)=>{
-  //  const sql = "SELECT * FROM  usuarios WHERE email = ? AND password = ?";
+app.post ('/login', (req, res)=>{
+    const sql = "SELECT * FROM usuarios WHERE `Email` = ? AND `Password` = ?";
+
+    const values = [req.body.email, req.body.password];
   
-   // db.query(sql, [req.body.email, req.body.password], (err, data)=>{
-   //     if(err) return res.json("Se encontro un error");
-    //    if(data.length > 0 ){
-     //       return res.json("Login Exitoso")
-      //  } else {
-      //      return res.json("No tiene acceso")
-      //  }
-//})
-//})
+    db.query(sql, values, (err, data)=>{
+       if(err) {
+        console.error(err);
+            return res.status(500).json({ error: "Se encontró un error en la consulta SQL" });
+       }
+
+        if(data.length > 0 ){
+            return res.json("Exito")
+        } else {
+            return res.json("No tiene acceso")
+        
+                }
+    })
+})
 
 app.listen(8081, () => {
     console.log("Listening on ");

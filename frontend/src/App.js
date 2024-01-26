@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from './components/inicio/Inicio';
 import About from './components/about/About'; 
 import NavMenu from './components/navbar/NavMenu';
-import Signup from './components/login/Signup';
+import Login from './components/login/Login.js';
 import Registro from './components/registro/Registro';
+import DashBoard from './components/dashboard/DashBoard.js';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
 
         <Route exact path="/" element={<Inicio />} />
         <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/dashboard" element ={<DashBoard />} />
         
         </Routes>
     </Router>
