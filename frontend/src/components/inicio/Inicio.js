@@ -5,8 +5,12 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 
-function NavTabsExample() {
+import NavMenu from '../navbar/NavMenu';
+
+function Inicio() {
   return (
+    <div>
+      <NavMenu />
     <Row>
       <Col></Col>
         <Col xs={6}>
@@ -56,8 +60,9 @@ function NavTabsExample() {
         </Col>
         <Col></Col>
       </Row>
+      </div>
     
   );
 }
 
-export default NavTabsExample;
+export default Inicio;

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import NavMenu from '../navbar/NavMenu';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Validation from './LoginValidation';
@@ -35,6 +37,8 @@ function Login() {
     }
   }
   return (
+    <div>
+      <NavMenu />
     <div className='d-flex vh-100 justify-content-center align-items-center'>
     <div className='p-3 bg-blue w-25'>
     <Form onSubmit={handleSubmit}>
@@ -52,6 +56,7 @@ function Login() {
         Ingresar
       </Button>
     </Form>
+    </div>
     </div>
     </div>
   );

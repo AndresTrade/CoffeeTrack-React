@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+import NavMenu from '../navbar/NavMenu';
+
 import Validation from './SignupValidation';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -36,7 +38,8 @@ function Registro() {
     }
   }
   return (
-
+      <div>
+        <NavMenu />
       <div className='d-flex vh-100 justify-content-center align-items-center'>
       <Form onSubmit={handleSubmit}>
       <Row className="mb-3">
@@ -99,6 +102,7 @@ function Registro() {
         Enviar
       </Button>
     </Form>
+    </div>
     </div>
     )
   }

@@ -3,8 +3,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
+import NavMenu from '../navbar/NavMenu';
+
 function About() {
   return (
+    <div>
+      <NavMenu />
     <Container>
       <Row>
         <Col></Col>
@@ -23,6 +27,7 @@ function About() {
         <Col></Col>
       </Row>
     </Container>
+    </div>
   );
 }
 
